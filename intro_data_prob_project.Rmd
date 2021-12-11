@@ -41,15 +41,15 @@ The data were collected through a random sample of adults in US and the implicat
 
 **Research quesion 1:**
 
-It is well known that people with Arthritis feels lots of pain and in many cases it can turn their lives into a nightmare because they cannot do basic things such as walking, bathing, going to a market and so on. For this reason I will check the impact of this disease on people's lives.
+It is well known that people with Arthritis feel lots of pain and in many cases it can turn their lives into a nightmare because they cannot do basic things such as walking, bathing, going to a market and so on. For this reason I will check the impact of this disease on people's lives.
 
 **Research quesion 2:**
 
-Diabetes is one of the main responsible for blindness caused by a disease among the adult population around the world and thinking about that I decided to compare and analyse the relation between the illness and blindness in USA. Moreover, I will check if people who have diabetes and are blind were told about the relation between both of them.
+Diabetes is one of the main responsible for blindness caused by a disease among the adult population around the world and thinking about that I decided to compare and analyse if there is any relation between the illness and blindness in this sample from USA. Moreover, I will check using a variable from the dataset if people who have diabetes and are blind were told about this relation.
 
 **Research quesion 3:**
 
-The last question I will approach is there is any relation among sleep disorders, depression and hypertension because according to (Batal et al., 2011) these disorders are a risk factor for both high blood pressure and depression.
+In the last question I will analyse if there is any relation among sleep disorders, depression and hypertension because according to (Batal et al., 2011) these disorders are a risk factor for both high blood pressure and depression.
 
 ------------------------------------------------------------------------
 
@@ -85,7 +85,7 @@ artrite <- brfss2013 %>%
 
 ```
 
-Secondly I separated the object, that contains 491.775 parameters, into two where the first one is related to people without arthritis and the another one concerns people with because I wanted to show the huge difference that exists between these two groups when it comes to problems caused by this disease. Once I got the data I was looking for I created two different plots regarding people with and without arthritis.
+Secondly I separated the object, that contains 491.775 parameters, into two where the first one is related to people without arthritis and the another one concerns people with. I did that because I wanted to show the huge difference that exists between these two groups when it comes to problems caused by this disease. Once I got the data I was looking for I created two different plots regarding people with and without arthritis.
 
 First of all, I created a new object named "noarth" to separate people without the illness.
 
@@ -109,13 +109,13 @@ paste("Percentage ", round(nrow(noarth)*100/nrow(artrite), digits = 2), "%", sep
 
 ```
 
-And I made a plot using ggplot showing the amount of problems people without arthritis said they have. Note that these 3 problems are the ones I mentioned above: 
+And I made a plot using ggplot showing the amount of problems people without arthritis said they have. Note that these 3 problems are the ones I mentioned on the description of this first case study: 
 
 - Difficulty Walking Or Climbing Stairs; 
 - Difficulty Dressing Or Bathing; 
 - Difficulty Doing Errands Alone.
 
-If a person said he or she had some issue to walk or wear a t-shirt for example, he/she got 1 in the respective variable. As I explained at the beginning, I changed the "yes/no" answers to 1/0 where 1 stands for "yes" and 0 for "no" due to it is easier to work and use data like that.
+If a person said he or she had some issue to walk or wear a t-shirt for example, they got 1 in the respective variable and 0 in case of a negative feedback. In other words, I changed the "yes/no" answers to 1/0 where 1 stands for "yes" and 0 for "no" due to it is easier to work and manipulate data like that.
 
 ```{r}
 ggplot(noarth) +
@@ -127,7 +127,7 @@ ggplot(noarth) +
   
 ```
 
-As we can see, the majority of people without the disease has no problems (0) that are commonly related to it. The result was very satisfactory because we were waiting for numbers like that. Below we have a summary of the finds:
+As we can see, the majority of people without the disease have no problems (0) that are commonly related to it. The result was very satisfactory because we were expecting for numbers like that. Below we have a summary of the finds:
 
 ```{r}
 noarth_summary <- noarth %>% count(total)
@@ -153,7 +153,7 @@ ggplot(noarth_summary) +
 
 
 -   90.47% of the people without arthritis have no pain or any difficulty to accomplish daily basic functions;
--   Less than 1% said they were facing all the 3 problems, it is a very low number.
+-   Less than 1% said they were facing all the 3 problems, which is a very low number.
 
 Now I got the data for people with arthritis. Let's see the outcomes...
 
@@ -166,7 +166,7 @@ arth <- arth %>% mutate(total = rowSums(arth[ ,2:4], na.rm = TRUE))
 
 ```
 
-As expected due to the previous outcomes, there are 165.152 people out of 491.775 with arthritis which represents 33.58% of total.
+As expected due to the previous outcomes, there are 165.152 people out of 491.775 with arthritis which represent 33.58% of total.
 
 ```{r}
 paste(nrow(artrite), " Total Sample", sep = "")
@@ -174,7 +174,7 @@ paste(nrow(arth), " People with Arthritis", sep = "")
 paste("Percentage ", round(nrow(arth)*100/nrow(artrite), digits = 2), "%",sep = "")
 ```
 
-The plot shows a completely different pattern in comparison to the first one. In this one we can see there is a huge amount of people with daily problems caused by the disease.
+The chart shows a completely different pattern in comparison to the first one. In this one we can see there is a huge amount of people with daily problems that are commonly related to arthritis.
 
 ```{r}
 ggplot (arth) +
@@ -185,7 +185,7 @@ ggplot (arth) +
   
 ```
 
-This outcome was expected because people with the illness usually have some difficulty to do some daily activities, even the basic ones like walking or wearing a shirt or pant. You can see below a table showing all the results, including the percentage:
+This outcome was not surprising because people with the illness usually have some difficulty to do some daily activities, even the basic ones like walking or wearing a shirt or  a pant. You can see below a table showing all the results, including the respective percentage:
 
 ```{r}
 arth_summary <- arth %>% count(total)
@@ -208,7 +208,7 @@ ggplot(arth_summary) +
   theme_classic()
 ```
 
-The amount of people who finds some activities very difficult due to joint pain increased significally as expected because people on this sample have arthritis. We saw in the first graph that more than 90% of people without the disease had no issues with pain, while in this one the percentage drops to 60%.
+The amount of people who find some activities very difficult due to joint pain increased significally as expected because people on this sample have arthritis. We saw in the first graph that more than 90% of people without the disease had no issues with pain, while in this one the percentage drops to 60%. Although we can see there is a strong relation between arthritis and the problems mentioned in this case study, we cannot say there is a causation due to it is necessary to analyse every single case to make sure these problems are not caused by other factors.
 
 **Research quesion 2:**
 
@@ -256,7 +256,7 @@ paste(nrow(diabetes), " Total Sample", sep = "")
 paste(nrow(diab), " Total of people with diabetes", sep = "")
 paste("Percentage ", round(nrow(diab)*100/nrow(diabetes), digits = 2), "%", sep = "")
 ```
-Visualization of the finds above:
+Visualization of the previous finds:
 
 ```{r}
 diabetes_teste <- diabetes %>% 
@@ -320,16 +320,16 @@ blind_awar <- diabetes_summary %>%
 print(blind_awar)  
 ```
  
- And I finally got above the result I was looking for:
+ Now I finally have the result I was looking for this second question:
  
  -   Only 1.907 blind people with diabetes (25.90%) knew about the relation and that's a very low number and it suggests it should be created an awareness campaign to let people know about the risks of getting blind because of diabetes. 
  
- Perhaps if people had more knowledge about that, many of them could have avoided losing their vision.
+ Perhaps if people had more knowledge about that, many of them could have avoided losing their vision. But again, we cannot confirm any causation here as well. 
 
 
 **Research quesion 3:**
 
-Firstly I need to select and organize the variables I want to work with. In this question I will select the following ones: 
+Firstly I selected and organized the variables I wanted to work with. In this question I picked the following ones: 
 
 - sleptim1: How Much Time Do You Sleep;
 - addepev2: Ever Told You Had A Depressive Disorder; 
@@ -374,9 +374,9 @@ paste(nrow(insomnia), " People with a Potential Sleep Disorder", sleep = "")
 paste("Percentage ", round(nrow(insomnia)*100/nrow(insomnia1), digits = 2), "%", sep ="")
 ```
 
-We can see 32.27% of the people in the sample (158.695) can potentially have some sleep disorder like insomnia, narcolepsy or sleep apnea.  
+We can see 32.27% of the people in the sample (158.695) can potentially have some sleep disorders like insomnia, narcolepsy or sleep apnea.  
 
-Now I summarized my dataset to facilitate my data analysis. I will only select people who suffers at least of one of both diseases mentioned in this study and will sum the amount of people according to their sleep hours. 
+Now I summarized my dataset to facilitate my data analysis. I will only select people who suffers at least of one of both diseases mentioned in this case study and will sum the amount of people according to their sleep hours. 
 
 ```{r}
 insomnia_summary1 <- insomnia %>% 
@@ -389,16 +389,16 @@ insomnia_summary1 <- insomnia %>%
 print(insomnia_summary1)
 ```
 
-with the dataset above I could find how many people who sleep less than 6 hours suffer of either hypertension or depression, or even both. 
+Looking at the dataset above I could find how many people who sleep less than 6 hours suffer of either hypertension or depression, or even both. 
 
 ```{r}
 paste(sum(insomnia_summary1$n), " People with depression or/and hypertension", sep = "")
 paste("Percentage ", round(sum(insomnia_summary1$n)*100/nrow(insomnia), digits = 2), "%" ,sep = "")
 ```
 
-The finds of this analysis is quite chocking because more than half of the sample has a disease that is highly connected to a poor sleep habit. 
+The finds of this analysis are quite chocking because more than half of the sample has a disease that is highly connected to a poor sleep habit. 
 
-Now I just need to merge the "insomnia_summary1" dataframe to the "insomnia_summary2" to be able to create a proper plot about the results I want to. 
+Now I just need to merge the "insomnia_summary1" dataframe into the "insomnia_summary2" one to be able to create a proper plot about the results I want to. 
 
 ```{r}
 completo <- left_join(insomnia_summary1, insomnia_summary2, by = "sleep_hours") %>% 
@@ -413,7 +413,7 @@ print(completo)
 ```
 
 
-Finally I can generate my plot about the relation among sleep disorders and hypertension/depression
+Finally I can generate my chart about the possible relation among sleep disorders and hypertension/depression
 
 ```{r}
 ggplot(completo, aes(x = sleep_hours, y = total, color = tot_hyp_dep)) +
@@ -426,11 +426,13 @@ ggplot(completo, aes(x = sleep_hours, y = total, color = tot_hyp_dep)) +
   
 ```
 
-As we can see, there is a clear relation between poor sleep habits to hypertension and depression. The less hours someone sleeps, the more chance to he or she has to develop a disease associated to that.
+As we can see, there is a considerable relation between poor sleep habits to hypertension and depression. The less hours someone sleeps, the more chance he or she has to get a disease associated to that taking into consideration the people in our sample.
+
+Once more, we cannot affirm there is a causation in our sample because we need to get more detailed information about every single person who took part in the survey. 
 
 According to the graph:
 
-- 68% of people who sleep only 2 hours a day have at least one of both illnesses;
+- 68% of people who sleep only 1 hour a day have at least one of both illnesses;
 - 76% of people who sleep only 2 hours a day have at least one of both illnesses; 
 - 75% of people who sleep only 3 hours a day have at least one of both illnesses;
 - 69% of people who sleep only 4 hours a day have at least one of both illnesses;
