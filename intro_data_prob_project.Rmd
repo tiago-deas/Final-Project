@@ -439,5 +439,5 @@ According to the graph:
 - 60% of people who sleep only 5 hours a day have at least one of both illnesses;
 - 52% of people who sleep only 6 hours a day have at least one of both illnesses.
 
-PS. I am not taking into consideration the 100% concerning 1 hour sleep because there was only one individual in the sample and it is not statistically relevant. 
+PS. I am not taking into consideration the 100% concerning 0 (no sleep) because there was only one individual in the sample and it is not statistically relevant. It is probably an outlier. 
 
