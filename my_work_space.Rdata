@@ -1,0 +1,3 @@
+noarth <- artrite %>% 
+  filter(havarth3 == "No") %>% 
+  mutate(total = rowSums(noarth[ ,2:4], na.rm = TRUE))
