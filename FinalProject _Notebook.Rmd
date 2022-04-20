@@ -1,6 +1,6 @@
 ---
 title: "Exploring the BRFSS data"
-Author: Tiago de Almeida Silva
+author: Tiago de Almeida Silva
 output:
   pdf_document: default
   html_document:
