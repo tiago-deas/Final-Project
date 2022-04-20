@@ -5,4 +5,4 @@ Final Project of the course Introduction to Probability and Data with R from Duk
 
 <h1>👇</h1>
 
-<h3>There is an PDF file named "FinalProject _Notebook.pdf" with all instructions and information about my findings.</h3>
+<h3>There is a PDF file named "FinalProject _Notebook.pdf" with all instructions and information about my findings.</h3>
